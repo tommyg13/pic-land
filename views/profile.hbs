@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="/stylesheets/index.css" type="text/css" /> 
+
+{{# if auth}}
+<div class="container add text-center">
+     <form action="/add_image" method="post" class="form-inline">
+    <input type="hidden", name="_csrf", value="{{csrfToken}}">  
+  <div class="form-group">
+    <label for="image">Image url:</label>
+    <input type="text" class="form-control" id="imageURL" name="imageURL" required>
+  </div>
+  <div class="form-group">
+    <label for="imageDesc">Description:</label>
+    <input type="text" class="form-control" id="imageDesc" name="imageDesc" required>
+  </div>
+ <div class="form-group">
+ <label for="sel1">Category:</label>
+  <select class="form-control" id="category" name="category">
+    <option>sports</option>
+    <option>quotes</option>
+    <option>science and nature</option>
+    <option>education</option>
+    <option>animals</option>
+    <option>humour</option>
+    <option>technology</option>
+    <option>photography</option>
+    <option>entertainment</option>
+    <option>cars and motorcycles</option>
+    <option>art</option>
+    <option>food and drink</option>
+    <option>travel</option>
+  </select>
+</div>
+  <button type="submit" id="submit" class="btn btn-primary">Add a Pic</button>
+        </form>
+        <hr />
+</div>
+
+<div class="grid">
+  {{# each images}}
+  <div class="grid-item">
+  <a href="/show/image/{{this._id}}"><img id="img" class="img" src="{{this.url}}" alt="{{this.description}}"  onerror="imgError(this)"/></a>
+   <div>
+     <p class="text-center desc">{{this.description}}</p>
+   </div>
+    <div class="info clearfix">
+      <a href="/remove/{{this._id}}"class="btn btn-primary remove">
+          <span class="glyphicon glyphicon-remove"></span>
+        </a>
+      <a href="/image/{{this._id}}" class="btn btn-primary imgInfo">
+          <span id="likeClass"{{# if this.likeClass}}class="fa fa-heart" {{else}} class="fa fa-heart-o" {{/if}} aria-hidden="true"></span>  <span>{{this.likedBy.length}}</span>
+        </a>
+      </div>
+    </div>
+{{/each}}
+</div>
+
+{{else}}
+
+<div class="grid">
+  {{# each images}}
+  <div class="grid-item">
+  <a href="/show/image/{{this._id}}"> <img  class="img" src="{{this.url}}" alt="{{this.description}}"  onerror="imgError(this)" id="img"/></a>
+  <div>
+    <p class="text-center desc">{{this.description}}</p>
+    </div>
+    <div class="info clearfix">
+         <a href="/profile/{{this.user}}"><img class="avatar" src="{{this.userAvatar}}"></a>
+        {{# if ../user}}
+      <a href="/image/{{this._id}}" class="btn btn-primary imgInfo">
+          <span id="likeClass"{{# if this.likeClass}}class="fa fa-heart" {{else}} class="fa fa-heart-o" {{/if}} aria-hidden="true"></span>  <span>{{this.likedBy.length}}</span>
+        </a>
+        {{else}}
+              <button class="btn btn-primary imgInfo disabled">
+          <span class="glyphicon glyphicon-heart"></span>  <span>{{this.likedBy.length}}</span>
+        </button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+</div>
+
+{{/if}}

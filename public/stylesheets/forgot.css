@@ -1,0 +1,27 @@
+html{
+height:100%;    
+}
+
+body {
+  background:url(https://res.cloudinary.com/dlvavuuqe/image/upload/v1493390209/bgImg.jpg);
+   background-repeat:no-repeat;
+   background-size:cover;
+   background-position:center;
+}
+
+@media screen and (max-width: 992px) {
+    .panel-default  {
+        width: 300px !important;
+        margin:0 auto;
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+    #forgot, .row, .container {
+        width: 300px !important;
+        margin:0 auto;
+
+    }
+    
+}

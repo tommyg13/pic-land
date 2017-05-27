@@ -1,0 +1,67 @@
+#submit {
+    color:white;
+
+}
+
+.grid {
+    width: 1000px;
+    height: 6047px;
+    max-width:100%;
+    margin:0 auto;
+}
+.grid-item {
+    padding: 5px;
+    width: 236px;
+    max-width:100%;
+}
+
+#img {
+  display: block;
+  max-width:100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+}
+
+.avatar{
+  float:left;
+  margin:5px;
+  width: 50px;
+}
+
+.remove {
+  float:left;
+  margin:10px;
+}
+
+.imgInfo, .imgInfo1 {
+  float:right;
+  margin:10px;
+}
+
+.info, .desc {
+  background:#e8e8e8;
+  clear:both;
+  word-break: break-all;
+}
+
+p {
+  padding:5px;
+  margin-top: 7px;
+}
+
+#user {
+  cursor: text;
+}
+
+.fa-heart {
+  color: red;
+}
+
+@media screen and (max-width: 500px) {
+    .grid {
+        margin:0 auto;
+        padding-left: 26px;
+    }
+    
+}

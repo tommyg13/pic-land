@@ -1,0 +1,61 @@
+html{
+height:100%;    
+}
+
+body {
+  background:url(https://res.cloudinary.com/dlvavuuqe/image/upload/v1493390209/bgImg.jpg);
+   background-repeat:no-repeat;
+   background-size:cover;
+   background-position:center;
+}
+
+#forms {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.45);
+  margin-bottom:50px;
+  width:50%;
+}
+
+button {
+  cursor:pointer;
+}
+
+#login {
+  display:none;
+}
+
+a {
+  text-decoration:none !important;
+}
+
+#register {
+  margin-bottom:5px;
+}
+
+#reg, #log {
+ font-size:25px; 
+  color:#0275d8;
+  cursor:pointer;
+}
+
+#signin {
+  width:172px;
+  font-size:15px;
+}
+
+#twitter {
+  margin-top:10px;
+}
+
+@media screen and (max-width: 500px) {
+ #forms {
+     width:70%;
+ }
+}
+
+@media screen and (min-width: 1200px) {
+ #forms {
+     width:30%;
+ }
+}

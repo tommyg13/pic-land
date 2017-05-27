@@ -1,0 +1,46 @@
+<div class="container">
+<h1>Change password</h1>
+ <form  method="post" action="/password-change">
+     {{> Messages}}
+         <input type="hidden", name="_csrf", value="{{csrfToken}}">  
+
+         <div class="form-group">
+        <input id="Old-password" type="password" class="form-control" name="Old_password" placeholder="Old Password">
+          </div>
+        
+        <div class="form-group">
+        <input id="New_password" type="password" class="form-control" name="New_password" placeholder="New Password" minlength="6"oninvalid="this.setCustomValidity('Password must be at least 6 characters')"
+    oninput="setCustomValidity('')">
+          </div>
+        
+        <div class="form-group"> 
+        <input id="New_password1" type="password" class="form-control" name="New_password1" placeholder="New Password Confirmation" minlength="6"oninvalid="this.setCustomValidity('Password must be at least 6 characters')"
+    oninput="setCustomValidity('')">
+          </div>
+    <button class="btn btn-info" type="submit">Update</button> 
+   <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#myModal">Delete account</button>
+    </form>
+</div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete your account?</p>
+        </div>
+        <div class="modal-footer">
+            <form action="account_delete" method="post">
+           <input type="hidden", name="_csrf", value="{{csrfToken}}">  
+          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>

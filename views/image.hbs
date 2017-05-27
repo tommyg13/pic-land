@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/stylesheets/image.css">
+
+<div id="container">
+    <img src="{{image.url}}" id="img"></img>
+    <div class="clearfix" id="likes">
+         <a  data-toggle="tooltip" title="{{# each userName}}{{this}} <br> {{/each}}"  data-html="true" class="like"><span class="like"><i class="fa fa-thumbs-up" aria-hidden="true">{{image.likedBy.length}}</i></span></a>
+        <a href="/image/{{image._id}}" class="btn btn-primary imgInfo">
+          <span {{# if image.likeClass}}class="fa fa-heart" {{else}} class="fa fa-heart-o" {{/if}} aria-hidden="true"></span>  <span>{{image.likedBy.length}}</span>
+        </a>
+    </div>
+    <hr>
+    <form  method="post" align="center">
+        {{> Messages}}
+    <input type="hidden", name="_csrf", value="{{csrfToken}}">  
+  <div class="form-group">
+    <input type="text" class="form-control" id="comm" name="comment" placeholder="Add a comment" required>
+  </div>
+  <button type="submit" class="btn btn-warning">Add comment</button>
+  </form>
+    <hr>
+  <button type="button" class="btn btn-lg btn-info collapsed" data-toggle="collapse" data-target="#demo" id="btn">comments({{image.comments.length}}) <span id="span" class="glyphicon glyphicon-chevron-right"></span></button>
+  <div id="demo" class="collapse">
+      <hr>
+    {{# each image.comments}}
+    <div class="comments clearfix">
+   <img src="{{this.avatar}}" class="logo">
+   <span><strong>{{this.userName}} {{# if this.auth}}<a href="/delete/{{this.id}}" ><i class="glyphicon glyphicon-trash"></i></a>{{/if}}
+   </strong><br> {{this.comment}}</span>
+   </div>
+   {{/each}}
+  </div>
+</div>
+
+{{# if similar}}
+<div class="container">
+    <h1>Related Images</h1>
+    <hr> 
+</div>
+<div class="container grid" id="similar">
+    {{# each similar}}
+  <div class="grid-item">
+  <a href="/show/image/{{this._id}}"><img src="{{this.url}}" alt="{{this.description}}" onerror="imgError(this)" id="img" /> </a>
+    </div>
+    {{/each}}
+</div>
+{{/if}}

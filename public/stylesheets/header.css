@@ -1,0 +1,39 @@
+body {
+    padding-top: 70px;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-default {
+    background-color: #860303;
+    border-color: #e7e7e7;
+}
+
+.notLogo {
+    width:40px;
+    padding:2px;
+    margin-right: 7px;
+}
+
+#notification {
+    background:#edf2fa;
+}
+
+#notification a {
+    text-decoration: none;
+}
+
+#clear {
+    float:right;
+}
+
+.notf {
+    color:black;
+}
+
+.badge {
+    background:red;
+    font-size: 10px;    
+}

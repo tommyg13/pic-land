@@ -1,0 +1,68 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Logo</a>
+    </div>
+{{# if user}}
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">Home</a></li>
+                <li class="dropdown ">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-commenting fa-lg" aria-hidden="true">{{#if user.local.notifications}}<i class="badge">{{user.local.notifications.length}}</i>{{/if}}</i></a>
+          <ul class="dropdown-menu clearfix" id="notification">
+            {{# if user.local.notifications}}
+             <a href="/clear" id="clear">clear all</a> <hr>
+            {{# each user.local.notifications}}
+            <a href="/show/image/{{this.imageId}}" class="notf"><img src="{{this.logo}}" class="notLogo" align="left">{{this.notf}} <a class="clear"href="/clear/{{this.notId}}"><i class="glyphicon glyphicon-remove"></i></a></a><hr style="margin:0px;border-top: 1px solid #d2cfcf">
+                        {{/each}}
+            {{else}}
+            <p>Your inbox is empty</p>
+            {{/if}}
+            </ul>
+            </li>
+                    
+        {{# if user.local.username}}
+        <li><a href="/profile/{{user._id}}"><img  src="{{user.local.image}}" width="22px" style="height:22px !important;"> Profile </a></li>
+        <li><a href="/settings">Settings</a></li>
+        {{else}}
+        <li><a href="/profile/{{user._id}}"><img  src="{{user.twitter.image}}" width="22px" style="height:22px !important;"> Profile</a></li>        
+        {{/if}}
+        <li class="dropdown ">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+    <li><a href="/categories/animals">Animals</a></li>            
+    <li><a href="/categories/art">Art</a></li>    
+    <li><a href="/categories/cars_and_motorcycles">Cars and Motorcycles</a></li>    
+    <li><a href="/categories/education">Education</a></li>    
+    <li><a href="/categories/enterainment">Entertainment</a></li>    
+    <li><a href="/categories/food_and_drink">Food and Drink</a></li>      
+    <li><a href="/categories/humour">Humour</a></li>    
+    <li><a href="/categories/photography">Photography</a></li>
+    <li><a href="/categories/quotes">Quotes</a></li>
+    <li><a href="/categories/science_and_nature">Science and Nature</a></li>    
+    <li><a href="/categories/sports">Sports</a></li>
+    <li><a href="/categories/travel">Travel</a></li>
+    <li><a href="/categories/technoloy">Technology</a></li>
+          </ul>
+        </li>
+         <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    {{else}}
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/auth">Login/Register</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  {{/if}}
+  </div><!-- /.container-fluid -->
+</nav>

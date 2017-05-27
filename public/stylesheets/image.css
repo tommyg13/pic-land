@@ -1,0 +1,79 @@
+.grid {
+    width: 1000px;
+    height:500px !important;
+    max-width:100%;
+    margin:0 auto;
+    overflow-y: scroll;
+    background-color: antiquewhite;
+    margin-bottom: 10px;
+}
+.grid-item {
+    padding: 5px;
+    width: 236px;
+    max-width:100%;
+}
+
+.grid image {
+  display: block;
+  max-width:100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+}
+
+#container {
+    width: 400px;
+    max-width: 100%;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(102, 102, 102, 0.5);
+    margin:0 auto;
+    margin-bottom: 30px;
+}
+
+#img {
+    border-radius: 8px;
+    display:block;
+    margin: 0 auto;
+    z-index: 5;
+    width:100%;
+}
+
+#likes {
+    margin-top:10px;
+    padding:5px;
+}
+
+.imgInfo {
+    float:right;
+}
+
+.like {
+ text-decoration: none !important;
+ font-size:15px;
+}
+
+.comments {
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.logo {
+    width:40px;
+    border-radius: 50%;
+    float:left;
+    margin-right: 10px;
+}
+
+.fa-heart {
+  color: red;
+}
+
+.fa-thumbs-up {
+    font-size: x-large
+}
+
+@media screen and (max-width: 500px) {
+   #container{
+        width: 250px;
+    }
+}
