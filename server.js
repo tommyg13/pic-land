@@ -125,9 +125,4 @@ app.use(function(err, req, res, next) {
   });
 });
 
-/* config port */
-app.listen(port,()=>{
-   console.log("server running on port " + port); 
-});
-
 module.exports = app;
