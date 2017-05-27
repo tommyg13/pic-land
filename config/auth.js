@@ -1,7 +1,7 @@
 module.exports = {
 	'twitterAuth' : {
-		'consumerKey' 		: 'tqQTQ6SPplNBlNdZjzwIa9qQS',
-		'consumerSecret' 	: '	u9Kqb6tH190zO8owcQcqS783DrNtPNPBm5nedsfzEtSRLViuSi',
-		'callbackURL' 		: 'https://pint-clone-gkazikas.c9users.io/auth/twitter/callback'
+		'consumerKey' 		: 'dQkUG9FaWMeQwoCxwqLdvbOXl',
+		'consumerSecret' 	: '8IXYVnrZMwWwpM6PuOOPRMI3zuleF53mCVbgQ56P5PRrIsgvVe',
+		'callbackURL' 		: 'https://pic-land.herokuapp.com/auth/twitter/callback'
 	},
 };
