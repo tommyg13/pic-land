@@ -56,7 +56,8 @@ router.get("/profile/:id",(req,res)=>{
            }); 
         });
         let name=req.user.twitter.username || req.user.local.username;
-    res.render("profile",{title:name,auth,images:match,csrfToken: req.csrfToken()});   
+        let url=req.params.id;
+    res.render("profile",{title:name,url,auth,images:match,csrfToken: req.csrfToken()});   
         }
     });
 
@@ -94,9 +95,19 @@ res.redirect("/profile/"+id);
 
 router.get("/remove/:id",(req,res)=>{
     let id=req.params.id;
-   Image.findByIdAndRemove(id).exec();
+   Image.findById(id,(err,img)=>{
+       if(err) console.log(err);
+      else {
+          if(req.user._id.toString() !== img.user.toString()){
+              res.send("not found");
+          }
+          else {
+    Image.findByIdAndRemove(id).exec();
     let userId=req.user._id;
    res.redirect("/profile/"+userId);
+          }
+      }
+   });
 });
 
 router.get("/image/:id",isLoggedIn,(req,res)=>{

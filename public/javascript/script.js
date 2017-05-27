@@ -40,6 +40,18 @@ $("#btn").click(function() {
 });
 */
 
+$(".remove").on("click",function(e) {
+  e.preventDefault();
+  var id=$(this).attr("data-id");
+  var url=$(this).attr("data-url");
+  $.ajax({
+    type:"Get",
+    url:"/remove/"+id,
+    success:function(response){
+      window.location.href="/profile/"+url;
+    }
+  });
+})
 $('.grid').imagesLoaded( function() {
   // images have loaded
 
