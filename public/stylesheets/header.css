@@ -27,6 +27,7 @@ body {
 
 #clear {
     float:right;
+    cursor: pointer;
 }
 
 .notf {

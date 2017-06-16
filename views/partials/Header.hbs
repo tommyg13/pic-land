@@ -20,9 +20,9 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-commenting fa-lg" aria-hidden="true">{{#if user.local.notifications}}<i class="badge">{{user.local.notifications.length}}</i>{{/if}}</i></a>
           <ul class="dropdown-menu clearfix" id="notification">
             {{# if user.local.notifications}}
-             <a href="/clear" id="clear">clear all</a> <hr>
+             <a  id="clear">clear all</a> <hr>
             {{# each user.local.notifications}}
-            <a href="/show/image/{{this.imageId}}" class="notf"><img src="{{this.logo}}" class="notLogo" align="left">{{this.notf}} <a class="clear"href="/clear/{{this.notId}}"><i class="glyphicon glyphicon-remove"></i></a></a><hr style="margin:0px;border-top: 1px solid #d2cfcf">
+            <a href="/show/image/{{this.imageId}}" class="notf"><img src="{{this.logo}}" class="notLogo" align="left">{{this.notf}} <a class="clear" data-id={{this.notId}}><i class="glyphicon glyphicon-remove"></i></a></a><hr style="margin:0px;border-top: 1px solid #d2cfcf">
                         {{/each}}
             {{else}}
             <p>Your inbox is empty</p>

@@ -114,13 +114,15 @@ router.get("/image/:id",isLoggedIn,(req,res)=>{
     let id=req.params.id;
     let helper=true;
     Image.findById(id).then(match=>{
-        
         match.likedBy.map(voter=>{
            if(voter.toString()===req.user._id.toString()){
          Image.update({_id: id,}, 
               {$pull: {'likedBy': req.user._id}},(err)=>{
                 if(err)console.log(err);
-       });        
+               
+       });     
+
+       res.send([match.likedBy,match._id,match.likeClass])  
              helper=false;
                match.likeClass=false;
                match.save();
@@ -132,7 +134,7 @@ router.get("/image/:id",isLoggedIn,(req,res)=>{
          Image.update({_id: id,}, 
               {$push: {'likedBy': req.user._id}},(err)=>{
                 if(err)console.log(err);
-       }); 
+       });  res.send([match.likedBy,match._id,match.likeClass])
         User.findById(req.user._id)
         .then(user=>{
             if(match.user.toString() !== req.user.id.toString()){
@@ -149,19 +151,19 @@ router.get("/image/:id",isLoggedIn,(req,res)=>{
             }
         });
        }
+      
     });
      
-      res.redirect("back");
 });
 
 router.get("/show/image/:id",isLoggedIn,(req,res)=>{
+    
     let query=req.params.id;
     let userId=[];
     let userName=[];
     let name;
     Image.findById(query)
     .then((image=>{
-    
         image.likedBy.map(match=>{
         if(match.toString()===req.user._id.toString()){
             image.likeClass=true;
@@ -191,7 +193,7 @@ router.get("/show/image/:id",isLoggedIn,(req,res)=>{
         let index = similar.findIndex(x => {
            return x._id.toString()==image._id.toString()});
         similar.splice(index, 1);
-      res.render("image",{image,userName,similar,csrfToken: req.csrfToken()}); 
+      res.render("image",{title:"image: "+image.description,image,userName,similar,csrfToken: req.csrfToken()}); 
     });
         });
     }));
@@ -270,16 +272,16 @@ router.get("/delete/:id",(req,res)=>{
        d.map(coms=>{
           coms.comments.map(comment=>{
            if(comment.id.toString()===req.params.id.toString()){
-            Image.update(
-                   { },
-    { $pull: { comments: { $in: [ comment ] }} },(err)=>{
+             Image.update(
+                   {},
+    { $pull: { comments: {id :comment.id}} },{multi:true},(err)=>{
        if(err)console.log(err);
     });
            }
           });
        });
     });
-   res.redirect("back"); 
+   res.redirect("back");
 });
 
 // route middleware to ensure user is logged in

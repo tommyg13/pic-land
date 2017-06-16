@@ -3,10 +3,10 @@
 <div id="container">
     <img src="{{image.url}}" id="img"></img>
     <div class="clearfix" id="likes">
-         <a  data-toggle="tooltip" title="{{# each userName}}{{this}} <br> {{/each}}"  data-html="true" class="like"><span class="like"><i class="fa fa-thumbs-up" aria-hidden="true">{{image.likedBy.length}}</i></span></a>
-        <a href="/image/{{image._id}}" class="btn btn-primary imgInfo">
-          <span {{# if image.likeClass}}class="fa fa-heart" {{else}} class="fa fa-heart-o" {{/if}} aria-hidden="true"></span>  <span>{{image.likedBy.length}}</span>
-        </a>
+         <a class="like"><span class="like"><i class="fa fa-thumbs-up" aria-hidden="true">{{image.likedBy.length}}</i></span></a>
+      <a data-url=/image/{{image._id}} class="btn btn-primary imgInfo" >
+          <span id="likeClass" class="{{image._id}} {{# if image.likeClass}} fa fa-heart {{else}} fa fa-heart-o {{/if}}"></span>  <span id={{image._id}}>{{image.likedBy.length}}</span> 
+          </a>
     </div>
     <hr>
     <form  method="post" align="center">

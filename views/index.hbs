@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="/stylesheets/index.css" type="text/css" /> 
 
 <div class="grid">
+  <div class="test">
     {{> Messages}}
   {{# each images}}
   <div class="grid-item">
@@ -11,8 +12,8 @@
       <div class="info clearfix">
           <a href="/profile/{{this.user}}" ><img class="avatar" src="{{this.userAvatar}}"></a>
     {{# if ../user}}
-      <a href="/image/{{this._id}}" class="btn btn-primary imgInfo" >
-          <span id="likeClass" {{# if this.likeClass}}class="fa fa-heart" {{else}} class="fa fa-heart-o" {{/if}}  aria-hidden="true"></span>  <span>{{this.likedBy.length}}</span> 
+      <a data-url=/image/{{this._id}} class="btn btn-primary imgInfo" >
+          <span id="likeClass" class="{{this._id}} {{# if this.likeClass}} fa fa-heart {{else}} fa fa-heart-o {{/if}}"></span>  <span id={{this._id}}>{{this.likedBy.length}}</span> 
         </a>
         {{else}}
               <button class="btn btn-primary imgInfo disabled">
@@ -22,5 +23,6 @@
       </div>
     </div>
 {{/each}}
+</div>
 </div>
 
