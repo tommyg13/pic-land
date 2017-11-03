@@ -8,7 +8,7 @@ let userSchema = mongoose.Schema({
     local            : {
         username     : String,
         email        : String,
-        password     : String,
+        password     : {type:String},
         resetPasswordToken: String,
         resetPasswordExpires: Date,
         image        : String,
@@ -31,6 +31,7 @@ userSchema.methods.generateHash = function(password) {
 
 
 userSchema.methods.validPassword = function(password) {
+    console.log(password,this.local.password);
     return bcrypt.compareSync(password, this.local.password);
 };
 

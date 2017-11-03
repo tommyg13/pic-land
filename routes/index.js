@@ -69,7 +69,7 @@ router.get('/auth/twitter/callback',
 	 failureRedirect : '/auth'
 }));
 
-router.get("/logout",(req,res)=>{
+router.post("/logout",(req,res)=>{
    req.logout();
    req.flash("success_msg","You are logged out ");
    res.redirect("auth");
