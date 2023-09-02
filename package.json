@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon --exec npm start"
+    "dev": "nodemon --exec npm start",
+    "build": "npm install && npm run start"  
   },
   "engines": {
     "node": "16.13.2"
