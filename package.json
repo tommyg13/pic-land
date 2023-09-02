@@ -8,6 +8,9 @@
     "start": "node ./bin/www",
     "dev": "nodemon --exec npm start"
   },
+  "engines": {
+    "node": ">=16.13.2"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
