@@ -10,7 +10,9 @@
     "dev": "node --exec npm start"
   },
   "engines": {
-    "node": "16.13.2"
+    "node": "16.13.2",
+    "start": "node ./bin/www",
+    "dev": "nodemon --exec npm start"
   },
   "keywords": [],
   "author": "",
