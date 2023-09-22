@@ -1,0 +1,104 @@
+:root {
+  --max-width: 1200px;
+  --bg-color: #860303;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+img{
+  max-width: 100%;
+}
+
+.flex{
+  display: flex;
+}
+
+.navbar{
+  background-color: var(--bg-color);
+}
+
+.navbar .flex{
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 20px;
+
+}
+
+.masonry-parent{
+  width: 100%;
+}
+
+.masonry-grid {
+  max-width: 1400px;
+  position: relative;
+}
+
+.masonry-item {
+  background-color: #e0e0e0;
+  padding: 10px;
+  position: absolute;
+  display: block;
+  width: 236px;
+}
+
+
+.cards-container {
+  margin:2rem 0;
+  
+}
+
+.message-container{
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  gap: 10px;
+  display: grid;
+}
+
+.message-wrapper{
+    color: rgba(0, 0, 0, 0.87);
+    -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12);
+    letter-spacing: 0.01071em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 10px 16px;
+    width: 400px;
+    max-width: 100%;
+    justify-content: space-between;
+    cursor: pointer;
+
+}
+
+.message-wrapper.success{
+  background-color: #2e7d32;
+
+}
+.message-wrapper.error{
+  background-color: #d32f2f;
+
+}
+.message-wrapper > *{
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.message-wrapper > svg{
+  fill:#fff
+}
+
+.error-txt{
+  color: #d32f2f;
+}
